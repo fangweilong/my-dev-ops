@@ -6,13 +6,31 @@
 const constantRouterMap = [
   {
     path: '/',
-    name: 'Example',
-    redirect: { name: 'ExampleHelloIndex' },
+    name: 'Layout',
+    redirect: { name: 'LayoutIndex' },
+    route:"",
     children: [
       {
-        path: '/example',
-        name: 'ExampleHelloIndex',
-        component: () => import('@/views/example/hello/Index.vue')
+        path: '/layout',
+        name: 'LayoutIndex',
+        component: () => import('@/views/layout/Index.vue')
+      },
+    ]
+  },
+  {
+    path: '/remote',
+    name: 'Remote',
+    redirect: { name: 'ManageList' },
+    children: [
+      {
+        path: '/list',
+        name: 'ManageList',
+        component: () => import('@/views/remote/List.vue')
+      },
+      {
+        path: '/saveOrUpdate',
+        name: 'saveOrUpdate',
+        component: () => import('@/views/remote/RemoteSaveOrUpdate.vue')
       },
     ]
   },
